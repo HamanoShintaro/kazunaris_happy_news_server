@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended"
+  ],
+  "plugins": [
+    "node"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "node/exports-style": ["error", "module.exports"],
+    "node/file-extension-in-import": ["error", "always"],
+    "node/prefer-global/buffer": ["error", "always"],
+    "node/prefer-global/console": ["error", "always"],
+    "node/prefer-global/process": ["error", "always"],
+    "node/prefer-global/url-search-params": ["error", "always"],
+    "node/prefer-global/url": ["error", "always"],
+    "node/prefer-promises/dns": "error",
+    "node/prefer-promises/fs": "error",
+    "node/no-unpublished-require": "off",
+    "node/no-deprecated-api": "off",
+    "semi": "error",
+    "indent": ["error", 2],
+    "no-multi-spaces": "error",
+    "quotes": ["error", "single"],
+    "eqeqeq": "error",
+    "no-var": "error",
+    "computed-property-spacing": "error"
+  }
+}

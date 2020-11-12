@@ -1,6 +1,6 @@
 {
-  "name": "helloworld",
-  "description": "Simple hello world sample in Node",
+  "name": "kazunaris-happy-news",
+  "description": "",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
@@ -8,8 +8,7 @@
     "start": "node index.js",
     "test": "mocha test/index.test.js --exit",
     "system-test": "NAME=Cloud test/runner.sh mocha test/system.test.js --timeout=30000",
-    "lint": "eslint --ext .js",
-    "fix": "eslint --fix '**/*.js'"
+    "lint": "./node_modules/.bin/eslint '**/*.js' --fix"
   },
   "author": "Google LLC",
   "license": "Apache-2.0",
