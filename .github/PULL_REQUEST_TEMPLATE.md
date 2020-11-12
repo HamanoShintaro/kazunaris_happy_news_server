@@ -1,12 +1,3 @@
----
-name: Pull request
-about: ''
-title: ''
-labels: enhancement
-assignees: ''
-
----
-
 #### 概要
 （例）ユーザーがログインをする
 
