@@ -29,4 +29,3 @@ app.listen(port, () => {
 
 // Exports for testing purposes.
 module.exports = app;
-exports.app = 1;
