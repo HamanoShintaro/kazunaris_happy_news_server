@@ -16,9 +16,41 @@
 const express = require('express');
 const app = express();
 
+const mysql = require('mysql');
+require('dotenv').config();
+
+// TODO: 実行確認用
 app.get('/', (req, res) => {
-  const name = process.env.NAME || 'World';
-  res.send(`Hello ${name}!`);
+  const pool = mysql.createPool({
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT
+  });
+
+  async function hello() {
+    const connection = await new Promise((resolve, reject) => {
+      pool.getConnection((error, connection) => {
+        if (error) reject(error);
+        resolve(connection);
+      });
+    });
+
+    const results = await new Promise((resolve, reject) => {
+      connection.query('SELECT * FROM twitter_happy_news', (error, results) => {
+        if (error) reject(error);
+        resolve(results);
+      });
+    });
+    return results;
+  }
+
+  (async () => {
+    console.log(await hello())
+    res.send(`Connection OK`);
+    pool.end();
+  })();
 });
 
 const port = process.env.PORT || 8080;
