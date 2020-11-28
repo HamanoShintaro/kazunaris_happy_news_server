@@ -1,64 +1,38 @@
-# Cloud Run Hello World Sample
+# Quickstart for Node.js in the App Engine standard environment
 
-This sample shows how to deploy a Hello World application to Cloud Run.
+This is the sample application for the
+[Quickstart for Node.js in the App Engine standard environment][tutorial]
+tutorial found in the [Google App Engine Node.js standard environment][appengine]
+documentation.
 
-For more details on how to work with this sample read the [Google Cloud Run Node.js Samples README](https://github.com/GoogleCloudPlatform/nodejs-docs-samples/tree/master/run).
+* [Setup](#setup)
+* [Running locally](#running-locally)
+* [Deploying to App Engine](#deploying-to-app-engine)
+* [Running the tests](#running-the-tests)
 
-## Local Development
+## Setup
 
-### `npm run e2e-test`
+Before you can run or deploy the sample, you need to do the following:
 
-```
-export SERVICE_NAME=helloworld
-export CONTAINER_IMAGE=gcr.io/${GOOGLE_CLOUD_PROJECT}/helloworld
-npm run e2e-test
-```
+1.  Refer to the [appengine/README.md][readme] file for instructions on
+    running and deploying.
+1.  Install dependencies:
 
-## Using Testing Scripts
+        npm install
 
-### url.sh
+## Running locally
 
-The `url.sh` script derives the automatically provisioned URL of a deployed
-Cloud Run service.
+    npm start
 
-```sh
-export SERVICE_NAME=helloworld
-export REGION=us-central1
-test/url.sh
-```
+## Deploying to App Engine
 
-### deploy.sh
+    gcloud app deploy
 
-The `deploy.sh` script deploys a Cloud Run service.
+## Running the tests
 
-```sh
-export SERVICE_NAME=helloworld
-export CONTAINER_IMAGE=gcr.io/${GOOGLE_CLOUD_PROJECT}/helloworld
-export REGION=us-central1
-test/deploy.sh
-```
+See [Contributing][contributing].
 
-### runner.sh
-
-The `runner.sh` script:
-
-* Deploys the service to Cloud Run based on the `deploy.sh` script.
-* Sets the `BASE_URL` and `ID_TOKEN` environment variables.
-* Runs any arguments passed to the `runner.sh` script.
-* Tears down the Cloud Run service on completion.
-
-```sh
-test/runner.sh sleep 20
-```
-
-## Environment Variables (Testing)
-
-* `BASE_URL`: Specifies the Cloud Run service URL for end-to-end tests.
-* `ID_TOKEN`: JWT token used to authenticate with Cloud Run's IAM-based authentication.
-* `REGION`: [`us-central1`] Optional override region for the location of the Cloud Run service.
-* `SERVICE_NAME`: The name of the deployed service, used in some API calls and test assertions.
-
-## Dependencies
-
-* **express**: Web server framework.
-* **got**: [Testing] Used to make HTTP requests of the running service in end-to-end testing.
+[appengine]: https://cloud.google.com/appengine/docs/standard/nodejs
+[tutorial]: https://cloud.google.com/appengine/docs/standard/nodejs/quickstart
+[readme]: ../../README.md
+[contributing]: https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/CONTRIBUTING.md
